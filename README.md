@@ -1,6 +1,6 @@
 # SYN TCP Flood via Docker
 
-A ubuntu conteinerized script floods via local TCP requests a twin cat server hosted on the local network. The usage of a Wireshark or any package analyser is advised
+A ubuntu conteinerized script floods via local TCP requests a TwinCAT server hosted on the local network. The usage of a Wireshark or any package analyser is advised
 
 ## License
 
